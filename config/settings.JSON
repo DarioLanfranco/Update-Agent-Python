@@ -1,0 +1,9 @@
+{
+    "version_file": "C:\\Oliver\\Update\\Version",
+    "remote_version_url": "https://raw.githubusercontent.com/DarioLanfranco/Erp-Update-Agent-1.0.0/main/updates/latest",
+    "download_url_template": "https://raw.githubusercontent.com/DarioLanfranco/Erp-Update-Agent-1.0.0/main/packages/erp_{0}.zip",
+    "download_folder": "C:\\ERP\\Update",
+    "deploy_folder": "C:\\ERP\\",
+    "notify_type": "popup"
+  }
+  
