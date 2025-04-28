@@ -12,12 +12,12 @@ class Settings(BaseModel):
     Modelo de datos para la configuración cargada desde settings.json.
     Utiliza pydantic para validación automática.
     """
-    server_url: str
     version_file: str
+    remote_version_url: str
+    download_url_template: str
     download_folder: str
-    backup_folder: str
-    app_folder: str
-    notify: bool
+    deploy_folder: str
+    notify_type: str
 
 
 class Validator:
