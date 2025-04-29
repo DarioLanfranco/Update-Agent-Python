@@ -1,0 +1,8 @@
+# Ignora los archivos relacionados a API keys
+.env
+
+# Ignora los archivos de configuración de IDEs
+.idea
+
+# Ignora los archivos de configuracion JSON
+*.json
