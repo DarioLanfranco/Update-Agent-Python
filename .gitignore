@@ -13,3 +13,12 @@ config/settings.JSON
 # Ignora el archivo settings.JSON dentro de la carpeta config
 ERP_UPDATE_AGENT/config/settings.JSON
 
+# Ignora los archivos de configuración de Python
+_pycache__
+
+# Ignora los archivos de configuración de Python
+*.pyc
+
+# Ignora los archivos de configuración de Python
+*.logs
+

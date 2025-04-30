@@ -32,6 +32,7 @@ class Validator:
         """
         self.config_path = config_path
         self.settings: Optional[Settings] = None
+        print(f"[Validator] Inicializando con configuración en: {self.config_path}")
 
     def load_settings(self) -> bool:
         """
@@ -59,7 +60,7 @@ class Validator:
 
     def check_folders(self) -> bool:
         """
-        Verifica la existencia de las carpetas necesarias.
+        Verifica la existencia de las carpetas necesarias (descarga y despliegue).
         Crea las carpetas si no existen.
         """
         try:
@@ -68,8 +69,7 @@ class Validator:
 
             folders = [
                 self.settings.download_folder,
-                self.settings.backup_folder,
-                self.settings.app_folder
+                self.settings.deploy_folder
             ]
 
             for folder in folders:
@@ -86,13 +86,14 @@ class Validator:
 
     def check_server_connectivity(self) -> bool:
         """
-        Verifica que haya conectividad al servidor de actualizaciones.
+        Verifica que haya conectividad al servidor de actualizaciones (resuelve DNS).
         """
         try:
             if not self.settings:
                 raise ValueError("Configuración no cargada.")
 
-            host = self.settings.server_url.replace('https://', '').replace('http://', '').split('/')[0]
+            # Extraer el hostname del URL remoto
+            host = self.settings.remote_version_url.replace('https://', '').replace('http://', '').split('/')[0]
             socket.gethostbyname(host)
             print(f"[Validator] Conexión exitosa a {host}")
             return True
