@@ -6,7 +6,7 @@ import sys
 from core.validator import Validator
 from core.updater import Updater
 from core.downloader import Downloader
-from core.installer import Installer
+#from core.installer import Installer
 from core.notifier import Notifier
 from lib.logger import Logger
 
@@ -60,19 +60,19 @@ def main() -> None:
             notifier.send_notification("ERP Update", "Error al descargar el paquete de actualización.")
             sys.exit(1)
 
-        installer = Installer(settings.deploy_folder, settings.version_file)
+        #installer = Installer(settings.deploy_folder, settings.version_file)
 
         # Realizar respaldo de la instalación actual
-        if not installer.backup_current_version(BACKUP_FOLDER):
-            logger.error("[Main] Falló el respaldo. Abortando proceso.")
-            notifier.send_notification("ERP Update", "Error al realizar respaldo de ERP.")
-            sys.exit(1)
+        #if not installer.backup_current_version(BACKUP_FOLDER):
+            #logger.error("[Main] Falló el respaldo. Abortando proceso.")
+            #notifier.send_notification("ERP Update", "Error al realizar respaldo de ERP.")
+            #sys.exit(1)
 
         # Aplicar la nueva actualización
-        if not installer.install_update(package_path, new_version):
-            logger.error("[Main] Falló la instalación de actualización.")
-            notifier.send_notification("ERP Update", "Error instalando nueva actualización.")
-            sys.exit(1)
+        #if not installer.install_update(package_path, new_version):
+            #logger.error("[Main] Falló la instalación de actualización.")
+            #notifier.send_notification("ERP Update", "Error instalando nueva actualización.")
+            #sys.exit(1)
 
         logger.info(f"[Main] Actualización a versión {new_version} completada exitosamente.")
         notifier.send_notification("ERP Update", f"Actualización a versión {new_version} completada.")
